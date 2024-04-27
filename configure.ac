@@ -40,7 +40,11 @@ PROG_ABSPATH([CC])
 AC_CHECK_PROG([RM], [rm], [rm -f], [rm -f])
 PROG_ABSPATH([RM])
 
-AC_CHECK_PROG([AR], [ar], [ar cr], [ar cr])
+#AC_CHECK_PROG([AR], [ar], [ar rcs], [ar rcs])
+# On NixOS this isn't getting set properly I'm not sure why so I'm
+# forcing it for now.
+AR="ar rcs"
+AC_SUBST(AR)
 PROG_ABSPATH([AR])
 
 AC_PROG_RANLIB
